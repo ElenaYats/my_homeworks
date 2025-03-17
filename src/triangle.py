@@ -18,6 +18,3 @@ class Triangle(Figure):
     @property
     def perimeter(self):
         return self.side_a + self.side_b + self.side_c
-
-    def add_area(self, other_figure):
-        return self.area + other_figure.area

@@ -13,6 +13,3 @@ class Rectangle(Figure):
     def perimeter(self):
         return (self.side_a + self.side_b) * 2
 
-    def add_area(self, other_figure):
-        return self.area + other_figure.area
-

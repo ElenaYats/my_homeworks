@@ -15,6 +15,3 @@ class Circle(Figure):
     @property
     def perimeter(self):
         return 2 * math.pi * self.radius
-
-    def add_area(self, other_figure):
-        return self.area + other_figure.area
