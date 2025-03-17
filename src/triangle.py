@@ -9,10 +9,11 @@ class Triangle(Figure):
         self.side_a = side_a
         self.side_b = side_b
         self.side_c = side_c
-        self.x = (side_a + side_b + side_c)/2
+        self.x = self.x
 
     @property
     def area(self):
+        self.x = (self.side_a + self.side_b + self.side_c) / 2
         return math.sqrt(self.x * (self.x - self.side_a) * (self.x - self.side_b) * (self.x - self.side_c))
 
     @property
