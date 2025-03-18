@@ -9,7 +9,6 @@ class Triangle(Figure):
         self.side_a = side_a
         self.side_b = side_b
         self.side_c = side_c
-        self.x = self.x
 
     @property
     def area(self):
