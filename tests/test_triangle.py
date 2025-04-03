@@ -1,5 +1,4 @@
 from src.rectangle import Rectangle
-from src.figures import Figure
 from src.square import Square
 from src.triangle import Triangle
 from src.circle import Circle
@@ -50,7 +49,7 @@ def test_triangle_triangle_add_area_positive(triangle1_sides, triangle2_sides):
     triangle1 = Triangle(*triangle1_sides)
     triangle2 = Triangle(*triangle2_sides)
     expected_area = triangle1.area + triangle2.area
-    assert Figure.add_area(triangle1, triangle2) == expected_area, f"Wrong value triangle + triangle"
+    assert triangle1.add_area(triangle2) == expected_area, f"Wrong value triangle + triangle"
 
 @pytest.mark.parametrize("rectangle_sides, triangle_sides", [
     ((10, 5), (3, 5, 4)),
@@ -60,7 +59,7 @@ def test_rectangle_triangle_add_area_positive(rectangle_sides, triangle_sides):
     rectangle = Rectangle(*rectangle_sides)
     triangle = Triangle(*triangle_sides)
     expected_area = rectangle.area + triangle.area
-    assert Figure.add_area(rectangle, triangle) == expected_area, f"Wrong value triangle + rectangle"
+    assert triangle.add_area(rectangle) == expected_area, f"Wrong value triangle + rectangle"
 
 @pytest.mark.parametrize("square_side, triangle_sides", [
     ((5), (3, 5, 4)),
@@ -70,7 +69,7 @@ def test_square_triangle_add_area_positive(square_side, triangle_sides):
     square = Square(square_side)
     triangle = Triangle(*triangle_sides)
     expected_area = square.area + triangle.area
-    assert Figure.add_area(square, triangle) == expected_area, f"Wrong value triangle + square"
+    assert triangle.add_area(square) == expected_area, f"Wrong value triangle + square"
 
 @pytest.mark.parametrize("triangle_sides, circle_radius", [
     ((7, 5, 6), 6),
@@ -80,4 +79,4 @@ def test_triangle_circle_add_area_positive(triangle_sides, circle_radius):
     triangle = Triangle(*triangle_sides)
     circle = Circle(circle_radius)
     expected_area = triangle.area + circle.area
-    assert Figure.add_area(triangle, circle) == expected_area, f"Wrong value circle + triangle"
+    assert triangle.add_area(circle) == expected_area, f"Wrong value circle + triangle"

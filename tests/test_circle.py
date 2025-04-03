@@ -1,5 +1,4 @@
 from src.rectangle import Rectangle
-from src.figures import Figure
 from src.square import Square
 from src.triangle import Triangle
 from src.circle import Circle
@@ -39,7 +38,7 @@ def test_rectangle_circle_add_area_positive(rectangle_sides, circle_radius):
     rectangle = Rectangle(*rectangle_sides)
     circle = Circle(circle_radius)
     expected_area = rectangle.area + circle.area
-    assert Figure.add_area(rectangle, circle) == expected_area, f"Wrong value circle + rectangle"
+    assert circle.add_area(rectangle) == expected_area, f"Wrong value circle + rectangle"
 
 @pytest.mark.parametrize("square_side, circle_radius", [
     ((5), 6),
@@ -49,7 +48,7 @@ def test_square_circle_add_area_positive(square_side, circle_radius):
     square = Square(square_side)
     circle = Circle(circle_radius)
     expected_area = square.area + circle.area
-    assert Figure.add_area(square, circle) == expected_area, f"Wrong value circle + square"
+    assert circle.add_area(square) == expected_area, f"Wrong value circle + square"
 
 @pytest.mark.parametrize("circle1_radius, circle2_radius", [
     (5, 6),
@@ -58,7 +57,7 @@ def test_circle_circle_add_area_positive(circle1_radius, circle2_radius):
     circle1 = Circle(circle1_radius)
     circle2 = Circle(circle2_radius)
     expected_area = circle1.area + circle2.area
-    assert Figure.add_area(circle1, circle2) == expected_area, f"Wrong value circle + circle"
+    assert circle1.add_area(circle2) == expected_area, f"Wrong value circle + circle"
 
 @pytest.mark.parametrize("triangle_sides, circle_radius", [
     ((7, 5, 6), 6),
@@ -68,5 +67,5 @@ def test_triangle_circle_add_area_positive(triangle_sides, circle_radius):
     triangle = Triangle(*triangle_sides)
     circle = Circle(circle_radius)
     expected_area = triangle.area + circle.area
-    assert Figure.add_area(triangle, circle) == expected_area, f"Wrong value circle + triangle"
+    assert circle.add_area(triangle) == expected_area, f"Wrong value circle + triangle"
 
